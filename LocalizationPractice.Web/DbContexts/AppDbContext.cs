@@ -17,7 +17,6 @@ public class AppDbContext : DbContext
         {
             builder.HasKey(x => x.EntityId);
             builder.Property(x => x.EntityId).ValueGeneratedOnAdd();
-
         });
 
         base.OnModelCreating(modelBuilder);
