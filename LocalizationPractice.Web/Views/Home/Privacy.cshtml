@@ -1,0 +1,40 @@
+﻿@model PersonalInformation
+
+@{
+    ViewData["Title"] = Localizer["Title"];
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>@Localizer["ShortDescription"]</p>
+
+
+<div class="card bg-warning">
+    <form asp-action="Privacy" method="post" asp-antiforgery="true" >
+        <div class="card-header">
+            <div class="card-title"><h4 class="text-center">@Localizer["CardTitle"]</h4></div>
+        </div>
+        <div class="card-body bg-light">
+            <span>@TempData["Error"]</span>
+            <input type="hidden" asp-for="EntityId" />
+
+            <div class="input-group mb-3">
+                <label class="col-form-label col-md-2 text-end">@Localizer["NameLabel"]</label>
+                <div class="col-md-10 ps-3">
+                    <input type="text" asp-for="Name" class="form-control" placeholder="@Localizer["NamePlaceHolder"]" />
+                </div>
+            </div>
+            
+            <div class="input-group mb-3">
+                <label class="col-form-label col-md-2 text-end">@Localizer["AddressLabel"]</label>
+                <div class="col-md-10 ps-3">
+                    <textarea class="form-control" asp-for="Address" rows="5" placeholder="@Localizer["AddressPlaceHolder"]">
+                    </textarea>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer text-center">
+            <input type="submit" class="btn btn-outline-success rounded-3" value="Submit" />
+        </div>
+    </form>
+</div>
