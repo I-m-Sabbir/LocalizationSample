@@ -1,1 +1,1 @@
-# Localization Sample
+# LocalizationSample
