@@ -17,7 +17,9 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("DefaultDb"));
+//builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("DefaultDb"));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()

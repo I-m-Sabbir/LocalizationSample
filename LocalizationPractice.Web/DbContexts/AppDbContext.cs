@@ -16,7 +16,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<PersonalInformation>(builder =>
         {
             builder.HasKey(x => x.EntityId);
-            builder.Property(x => x.EntityId).ValueGeneratedOnAdd();
+            builder.Property(x => x.EntityId);
         });
 
         base.OnModelCreating(modelBuilder);
